@@ -18,7 +18,7 @@ def ask_gpt_travel(question):
     )
     return response.choices[0].message.content.strip()
 
-@app.route("/chatbot_ai/webhook", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def chatbot_webhook():
     data = request.get_json()
     user_message = data.get("message", "")
