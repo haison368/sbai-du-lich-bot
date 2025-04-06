@@ -27,3 +27,14 @@ def webhook():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route("/chatbot_ai/webhook", methods=["POST"])
+def chatbot_webhook():
+    data = request.get_json()
+    user_message = data.get("message", "")
+
+    if not user_message:
+        return jsonify({"error": "No message provided"}), 400
+
+    reply = ask_gpt_travel(user_message)
+    return jsonify({"reply": reply})
