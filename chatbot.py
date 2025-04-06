@@ -29,5 +29,3 @@ def chatbot_webhook():
     reply = ask_gpt_travel(user_message)
     return jsonify({"reply": reply})
 
-if __name__ == "__main__":
-    app.run(debug=True)
