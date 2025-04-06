@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 def ask_gpt_travel(question):
     prompt = f"Bạn là trợ lý du lịch AI thông minh. Hãy trả lời ngắn gọn và thực tế:\n\n{question}\n\nTrả lời:"
+    try:
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
@@ -17,6 +18,9 @@ def ask_gpt_travel(question):
         max_tokens=400
     )
     return response.choices[0].message.content.strip()
+except Exception as e:
+print("✅ API key:", openai.api_key)
+print("✅ Prompt:", prompt)
 
 @app.route("/webhook", methods=["POST"])
 def chatbot_webhook():
