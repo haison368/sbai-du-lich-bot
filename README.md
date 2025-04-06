@@ -1,2 +1,3 @@
-# sbai-du-lich-bot
-Chatbot AI Du lịch thông minh cho SB AI
+# SB AI - Du Lịch Chatbot
+
+Chatbot AI tư vấn du lịch thông minh sử dụng Flask + OpenAI GPT.
