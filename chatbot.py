@@ -19,16 +19,6 @@ def ask_gpt_travel(question):
     return response.choices[0].message.content.strip()
 
 @app.route("/chatbot_ai/webhook", methods=["POST"])
-def webhook():
-    data = request.json
-    user_input = data.get("message", "")
-    reply = ask_gpt_travel(user_input)
-    return jsonify({"reply": reply})
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-@app.route("/chatbot_ai/webhook", methods=["POST"])
 def chatbot_webhook():
     data = request.get_json()
     user_message = data.get("message", "")
@@ -38,3 +28,6 @@ def chatbot_webhook():
 
     reply = ask_gpt_travel(user_message)
     return jsonify({"reply": reply})
+
+if __name__ == "__main__":
+    app.run(debug=True)
