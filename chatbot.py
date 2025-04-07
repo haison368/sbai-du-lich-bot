@@ -36,7 +36,7 @@ def chatbot_webhook():
     reply = ask_gpt_travel(user_message)
     return jsonify({"reply": reply})
 
-@app.route("/M-Q35wlvLqfLXk9eggnsVbEknLE_s1CCC38m.html")
+@app.route("/zalo_verifierM-Q35wlvLqfLXk9eggnsVbEknLE_s1CCC38m.html")
 def verify_zalo():
     return "zalo-verification: M-Q35wlvLqfLXk9eggnsVbEknLE_s1CCC38m"
 
